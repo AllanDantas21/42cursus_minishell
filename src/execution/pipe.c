@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   pipe.c                                             :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 02:19:50 by ldantas           #+#    #+#             */
-/*   Updated: 2024/05/28 12:22:16 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/04 22:00:59 by aldantas         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "minishell.h"
 
@@ -50,7 +50,7 @@ int	ft_pipe(t_word *prompt)
 	while (prompt)
 	{
 		cmd = prompt;
-		while (prompt && prompt->flag != MS_PIPE)
+		while (prompt && prompt->flag != PIPE)
 			prompt = prompt->next;
 		if (!prompt)
 			return (0);
@@ -79,14 +79,14 @@ void	wait_cmds(t_word *prompt)
 	{
 		if (prompt->pid != 0)
 			waitpid(prompt->pid, &prompt->status, 0);
-		prompt= prompt->next;
+		prompt = prompt->next;
 	}
-	prompt= aux;
+	prompt = aux;
 	while (prompt)
 	{
 		if (prompt->status >= 0)
 			g_exit_status = WEXITSTATUS(prompt->status);
-		prompt= prompt->next;
+		prompt = prompt->next;
 	}
 	return ;
 }

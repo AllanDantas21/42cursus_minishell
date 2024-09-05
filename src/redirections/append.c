@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 01:56:49 by aldantas          #+#    #+#             */
-/*   Updated: 2024/05/18 00:33:15 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/04 21:53:50 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	append(t_word *prompt)
 	int		fd_out;
 
 	head = prompt;
-	while (head && head->flag != MS_WORD)
+	while (head && head->flag != WORD)
 		head = head->next;
-	while (prompt && prompt->flag != MS_PIPE)
+	while (prompt && prompt->flag != PIPE)
 	{
-		if (prompt->flag == MS_APPEND)
+		if (prompt->flag == APPEND)
 		{
 			fd_out = open(prompt->next->word, O_WRONLY
 					| O_APPEND | O_CREAT, 0644);

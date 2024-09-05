@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   create_word.c                                      :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 12:28:40 by dwbessa           #+#    #+#             */
-/*   Updated: 2024/05/28 12:38:37 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/04 21:57:25 by aldantas         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "minishell.h"
 
@@ -31,9 +31,9 @@ t_word	*create_word_lst(char *line, t_list *env_lst)
 	while (*line)
 	{
 		word_len = get_word_len(line);
-		new_word = ms_lstnew(ft_substr(line, 0, word_len));
+		new_word = lstnew(ft_substr(line, 0, word_len));
 		new_word->env = env_lst;
-		ms_lstadd_back(&word_lst, new_word);
+		lstadd_back(&word_lst, new_word);
 		line += word_len;
 		while (ft_isspace(*line))
 			line++;

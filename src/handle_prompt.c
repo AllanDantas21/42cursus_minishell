@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 10:41:11 by dbessa            #+#    #+#             */
-/*   Updated: 2024/05/20 16:30:59 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/04 21:53:45 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,19 @@ unsigned int	give_token(char *word, int last_flag)
 	if (!word)
 		return (-1);
 	if (!ft_strncmp("|", word, 2))
-		return (MS_PIPE);
+		return (PIPE);
 	else if (!ft_strncmp("<", word, 2))
-		return (MS_REDIRECT_IN);
+		return (REDIRECT_IN);
 	else if (!ft_strncmp(">", word, 2))
-		return (MS_REDIRECT_OUT);
+		return (REDIRECT_OUT);
 	else if (!ft_strncmp(">>", word, 3))
-		return (MS_APPEND);
+		return (APPEND);
 	else if (!ft_strncmp("<<", word, 3))
-		return (MS_HEREDOC);
-	else if (last_flag == MS_REDIRECT_OUT || last_flag == MS_REDIRECT_IN
-		|| last_flag == MS_HEREDOC || last_flag == MS_APPEND)
-		return (MS_REDIRECT_FILE);
-	return (MS_WORD);
+		return (HEREDOC);
+	else if (last_flag == REDIRECT_OUT || last_flag == REDIRECT_IN
+		|| last_flag == HEREDOC || last_flag == APPEND)
+		return (REDIRECT_FILE);
+	return (WORD);
 }
 
 void	print_word(t_word **prompt)

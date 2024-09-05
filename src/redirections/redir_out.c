@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 00:52:48 by aldantas          #+#    #+#             */
-/*   Updated: 2024/05/18 00:33:19 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/04 21:53:48 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	redir_out(t_word *prompt)
 	int		fd_out;
 
 	head = prompt;
-	while (head && head->flag != MS_WORD)
+	while (head && head->flag != WORD)
 		head = head->next;
-	while (prompt && prompt->flag != MS_PIPE)
+	while (prompt && prompt->flag != PIPE)
 	{
-		if (prompt->flag == MS_REDIRECT_OUT)
+		if (prompt->flag == REDIRECT_OUT)
 		{
 			fd_out = open(prompt->next->word, O_WRONLY
 					| O_CREAT | O_TRUNC, 0644);

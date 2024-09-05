@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   pipe_utils.c                                       :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 02:11:30 by aldantas          #+#    #+#             */
-/*   Updated: 2024/05/28 12:29:46 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/04 21:53:56 by aldantas         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "minishell.h"
 
@@ -29,7 +29,7 @@ void	redirect_stdio(t_word *prompt)
 
 void	close_sentence_fd(t_word *prompt)
 {
-	while (prompt && prompt->flag != MS_PIPE)
+	while (prompt && prompt->flag != PIPE)
 	{
 		if (prompt->fd_in != STDIN_FILENO)
 			close(prompt->fd_in);
@@ -57,7 +57,7 @@ t_word	*next_command_pipe(t_word *prompt)
 {
 	while (prompt)
 	{
-		if (prompt->flag == MS_PIPE)
+		if (prompt->flag == PIPE)
 			return (prompt->next);
 		prompt = prompt->next;
 	}

@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   lst_utils.c                                        :+:      :+:    :+:   */
@@ -6,13 +6,13 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 12:34:11 by dwbessa           #+#    #+#             */
-/*   Updated: 2024/05/28 12:16:14 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/04 21:53:46 by aldantas         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "minishell.h"
 
-t_word	*ms_lstnew(void *word)
+t_word	*lstnew(void *word)
 {
 	t_word	*new;
 
@@ -31,7 +31,7 @@ t_word	*ms_lstnew(void *word)
 	return (new);
 }
 
-void	ms_lstadd_back(t_word **lst, t_word *new)
+void	lstadd_back(t_word **lst, t_word *new)
 {
 	t_word	*last_node;
 
@@ -49,7 +49,7 @@ void	ms_lstadd_back(t_word **lst, t_word *new)
 	return ;
 }
 
-t_list	*ms_create_env_lst(void)
+t_list	*create_env_lst(void)
 {
 	extern char	**environ;
 	t_list		*head;
@@ -84,7 +84,7 @@ char	**transform_list(t_word *prompt)
 	aux = prompt;
 	i = -1;
 	mat_positions = 0;
-	while (aux && aux->flag == MS_WORD)
+	while (aux && aux->flag == WORD)
 	{
 		aux = aux->next;
 		mat_positions++;
